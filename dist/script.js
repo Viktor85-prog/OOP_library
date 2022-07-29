@@ -3187,8 +3187,16 @@ var Customizator = /*#__PURE__*/function () {
       body.style.backgroundColor = e.target.value;
     }
   }, {
+    key: "injectStyle",
+    value: function injectStyle() {
+      var style = document.createElement('style');
+      style.innerHTML = "\n        .panel {\n            display: flex;\n            justify-content: space-around;\n            align-items: center;\n            position: fixed;\n            top: 10px;\n            right: 0;\n            border: 1px solid rgba(0,0,0, .2);\n            box-shadow: 0 0 20px rgba(0,0,0, .5);\n            width: 300px;\n            height: 60px;\n            background-color: #fff;\n        \n        }\n        \n        .scale {\n            display: flex;\n            justify-content: space-around;\n            align-items: center;\n            width: 100px;\n            height: 40px;\n            \n        }\n        .scale_btn {\n            display: block;\n            width: 40px;\n            height: 40px;\n            border: 1px solid rgba(0,0,0, .2);\n            border-radius: 4px;\n            font-size: 18px;\n        }\n        \n        .color {\n            width: 40px;\n            height: 40px;\n        }\n        ";
+      document.querySelector('head').appendChild(style);
+    }
+  }, {
     key: "render",
     value: function render() {
+      this.injectStyle();
       var scaleInputS = document.createElement('input');
       var scaleInputM = document.createElement('input');
       var panel = document.createElement('div');
